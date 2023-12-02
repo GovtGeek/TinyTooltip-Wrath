@@ -120,11 +120,11 @@ function widgets:slider(parent, config)
     frame:SetScript("OnValueChanged", function(self, value)
         local step = self:GetValueStep() or 1
         if (step < 0.1) then
-            value = format("%.2f", value)
+            value = tonumber(format("%.2f", value))
         elseif (step < 1) then
-            value = format("%.1f", value)
+            value = tonumber(format("%.1f", value))
         else
-            value = floor(value+0.2)
+            value = tonumber(floor(value+0.2))
         end
         if (self:GetValue() ~= value) then
             SetVariable(self.keystring, value)
@@ -369,7 +369,7 @@ CreateAnchorButton(saframe, "BOTTOM")
 saframe:SetScript("OnShow", function() grid:Show() end)
 saframe:SetScript("OnHide", function() grid:Hide() end)
 
-local caframe = CreateFrame("Frame", nil, UIParent, BackdropTemplateMixin and "ThinBorderTemplate,BackdropTemplate" or "ThinBorderTemplate")
+local caframe = CreateFrame("Frame", nil, UIParent, "ThinBorderTemplate,BackdropTemplate" or "ThinBorderTemplate")
 caframe:Hide()
 caframe:SetFrameStrata("DIALOG")
 caframe:SetBackdrop({
@@ -444,7 +444,7 @@ function widgets:anchorbutton(parent, config)
 end
 
 function widgets:element(parent, config)
-    local frame = CreateFrame("Frame", nil, parent, BackdropTemplateMixin and "BackdropTemplate" or nil)
+    local frame = CreateFrame("Frame", nil, parent, "BackdropTemplate")
     frame:SetSize(560, 30)
     frame:SetBackdrop({
         bgFile   = "Interface\\Tooltips\\UI-Tooltip-Background",
@@ -819,7 +819,7 @@ end
 
 
 ----------------
--- DIY Frame 
+-- DIY Frame
 ----------------
 
 local diytable, diyPlayerTable = {}, {}
@@ -947,7 +947,7 @@ local function CreateLine(parent, lineNumber)
         local line = CreateFrame("Frame", nil, parent)
         line:SetSize(300, 24)
         line.line = lineNumber
-        line.border = CreateFrame("Frame", nil, line, BackdropTemplateMixin and "BackdropTemplate")
+        line.border = CreateFrame("Frame", nil, line, "BackdropTemplate")
         line.border:SetAllPoints()
         line.border:SetBackdrop({edgeFile = "Interface\\Buttons\\WHITE8X8", edgeSize = 1})
         line.border:SetBackdropBorderColor(1, 0.9, 0.1)
