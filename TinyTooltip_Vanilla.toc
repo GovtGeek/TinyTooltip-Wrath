@@ -1,8 +1,8 @@
-## Interface: 11501
+## Interface: 11502
 ## Title: TinyTooltip
 ## Notes: TinyTooltip
 ## Author: M, GovtGeek
-## Version: 3.4.3.6
+## Version: 3.4.3.7
 ## SavedVariables: BigTipDB
 ## SavedVariablesPerCharacter: TinyTooltipCharacterDB
 
