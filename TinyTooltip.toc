@@ -1,4 +1,4 @@
-## Interface: 30403
+## Interface: 11502, 30403, 40400
 ## Title: TinyTooltip
 ## Notes: TinyTooltip
 ## Author: M, GovtGeek
