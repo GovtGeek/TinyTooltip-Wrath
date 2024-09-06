@@ -12,7 +12,7 @@ TinyTooltipCharacterDB = {}
 local function ColorStatusBar(self, value)
     if (addon.db.general.statusbarColor == "auto") then
         local unit = "mouseover"
-        local focus = GetMouseFocus()
+        local focus = _G["GetMouseFocus"] and GetMouseFocus() or GetMouseFoci()
         if (focus and focus.unit) then
             unit = focus.unit
         end
@@ -30,7 +30,8 @@ local function ColorStatusBar(self, value)
     end
 end
 
-LibEvent:attachEvent("VARIABLES_LOADED", function()
+--LibEvent:attachEvent("VARIABLES_LOADED", function()
+LibEvent:attachEvent("PLAYER_ENTERING_WORLD", function()
     --CloseButton
     if (ItemRefCloseButton and not IsAddOnLoaded("ElvUI")) then
         ItemRefCloseButton:SetSize(14, 14)
