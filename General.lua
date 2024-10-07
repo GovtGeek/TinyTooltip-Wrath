@@ -12,7 +12,12 @@ TinyTooltipCharacterDB = {}
 local function ColorStatusBar(self, value)
     if (addon.db.general.statusbarColor == "auto") then
         local unit = "mouseover"
-        local focus = _G["GetMouseFocus"] and GetMouseFocus() or GetMouseFoci()
+        local focus
+        if _G["GetMouseFocus"] then
+            focus = GetMouseFocus()
+        else
+            focus = GetMouseFoci()
+        end
         if (focus and focus.unit) then
             unit = focus.unit
         end
@@ -36,8 +41,8 @@ LibEvent:attachEvent("PLAYER_ENTERING_WORLD", function()
     if (ItemRefCloseButton and not IsAddOnLoaded("ElvUI")) then
         ItemRefCloseButton:SetSize(14, 14)
         ItemRefCloseButton:SetPoint("TOPRIGHT", -4, -4)
-        ItemRefCloseButton:SetNormalTexture("Interface\\\Buttons\\UI-StopButton")
-        ItemRefCloseButton:SetPushedTexture("Interface\\\Buttons\\UI-StopButton")
+        ItemRefCloseButton:SetNormalTexture("Interface\\Buttons\\UI-StopButton")
+        ItemRefCloseButton:SetPushedTexture("Interface\\Buttons\\UI-StopButton")
         ItemRefCloseButton:GetNormalTexture():SetVertexColor(0.9, 0.6, 0)
     end
     --StatusBar
