@@ -1,8 +1,8 @@
-## Interface: 11505, 30403, 40400, 40401
+## Interface: 40402, 40401, 30403, 11505
 ## Title: TinyTooltip
 ## Notes: TinyTooltip
 ## Author: M, GovtGeek
-## Version: 4.4.1.1
+## Version: 4.4.2.0
 ## SavedVariables: BigTipDB
 ## SavedVariablesPerCharacter: TinyTooltipCharacterDB
 
