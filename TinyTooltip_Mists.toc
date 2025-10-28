@@ -6,6 +6,9 @@
 ## SavedVariables: BigTipDB
 ## SavedVariablesPerCharacter: TinyTooltipCharacterDB
 
+# Mist bug fix
+frames\ThinBorderTemplate.xml
+
 libs\lib.xml
 Core.lua
 Config.lua
