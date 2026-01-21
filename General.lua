@@ -64,7 +64,13 @@ LibEvent:attachEvent("PLAYER_ENTERING_WORLD", function()
             local min, max = self:GetMinMaxValues()
             self.TextString:SetFormattedText("|cff999999%s|r |cffffcc33<%s>|r", AbbreviateLargeNumbers(max), DEAD)
         else
-            TextStatusBar_UpdateTextString(self)
+            if TextStatusBar_UpdateTextString then
+                TextStatusBar_UpdateTextString(self)
+            else
+                local value = self:GetValue();
+                --local valueMin, valueMax = textStatusBar:GetMinMaxValues();
+                self.TextString:SetText(value)
+            end
         end
         ColorStatusBar(self, hp)
     end)
